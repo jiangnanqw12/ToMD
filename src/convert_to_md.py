@@ -40,7 +40,13 @@ def get_default_paths():
 
     # Define the output path
     output_path = os.path.join(output_dir, "output.md")
+    
+    config_dir=os.path.abspath(os.path.join(script_dir,'..','config'))
+    config_file_path=os.path.join(config_dir,'to_md_local.txt')
 
+    with open(config_file_path,'r',encoding='utf-8') as file:
+        input_file=file.readline().strip()
+    default_input_path=input_file
     return default_input_path, output_path
 
 def main():
